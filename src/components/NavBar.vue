@@ -1,6 +1,6 @@
 <template lang="pug">
   nav.nav
-    .nav__title StrangerPlants
+    h1.nav__title StrangerPlants
     
     .nav__items
       router-link(
@@ -47,14 +47,15 @@ export default {
 .nav__title {
   font-weight: 500;
   font-size: 1.3rem;
-  padding: 0 1rem;
+  padding: 1rem;
 }
 .nav__items {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 .nav__item {
-  padding: 0 1rem;
+  padding: 0.25rem 1rem;
   cursor: pointer;
   font-size: 0.85rem;
   &.nav__item--active {

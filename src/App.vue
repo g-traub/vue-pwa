@@ -2,7 +2,10 @@
   div#app
     header
       nav-bar
-    router-view
+      //- @TODO: add hero
+    main
+      router-view
+    //- @TODO: add footer
 </template>
 
 <script>
@@ -25,5 +28,9 @@ export default {
 html,
 body {
   font-family: 'Oswald', sans-serif;
+}
+
+main {
+  margin: 3rem 7.5%;
 }
 </style>
