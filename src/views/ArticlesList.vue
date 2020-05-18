@@ -1,9 +1,9 @@
 <template lang="pug">
-  div Home
+  div Article List
 </template>
 
 <script>
 export default {
-  name: 'Home'
+  name: 'ArticlesList'
 }
 </script>
