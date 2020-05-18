@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Test",
+    "publish_date": "18/05/2020",
+    "author": "Guillaume Traub",
+    "tags": [
+      "vuejs",
+      "pwa"
+    ],
+    "abstract": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae."
+  }
+]
