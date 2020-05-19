@@ -29,8 +29,4 @@ html,
 body {
   font-family: 'Oswald', sans-serif;
 }
-
-main {
-  margin: 3rem 7.5%;
-}
 </style>

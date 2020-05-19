@@ -41,7 +41,7 @@ export default {
   min-width: 250px;
   max-width: 350px;
   width: 30vw;
-  margin: 2rem;
+  margin: 2rem 0.5rem;
 }
 .articleCard__image {
   border-radius: 3px;
