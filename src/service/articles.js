@@ -6,9 +6,9 @@ const api = axios.create({
   headers: { 'x-apikey': '5ec3a273ce64705c9963fcc5' }
 })
 
-function getArticles() {
+function getArticles(max = 100) {
   return api
-    .get('articles')
+    .get(`articles?max=${max}&sort=publish_date`)
     .then(res => {
       return res.data
     })

@@ -4,7 +4,7 @@ div
     .articles__content
       h2.articles__title LES DERNIERS ARTICLES
       .articles__cards
-        article-card(v-for="article of lastArticles" :article="article" :key="article.id")
+        article-card(v-for="article of articles" :article="article" :key="article.id")
       .text-center
         button-link.articles__button(:to="{name: 'ArticlesList'}" variant="primary") VOIR D'AUTRES ARTICLES
   
@@ -20,7 +20,6 @@ div
 
 <script>
 import { getArticles } from '@/service/articles'
-import { sortByLatest } from '@/utils/articleDate'
 
 import ArticleCard from '@/components/ArticleCard'
 import buttonLink from '@/components/ButtonLink'
@@ -36,15 +35,9 @@ export default {
       articles: null
     }
   },
-  computed: {
-    lastArticles() {
-      return this.articles?.slice(0, 3)
-    }
-  },
   created() {
-    getArticles().then(articles => {
+    getArticles(3).then(articles => {
       this.articles = articles
-      sortByLatest(this.articles)
     })
   }
 }
