@@ -62,7 +62,7 @@ export default {
 .articles__cards {
   margin: 3rem auto 0 auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 .articles__button {

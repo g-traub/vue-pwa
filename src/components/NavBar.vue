@@ -37,7 +37,7 @@ export default {
 @import '@/styles/colors';
 
 .nav {
-  height: 80px;
+  min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
