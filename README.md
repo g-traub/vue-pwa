@@ -1,4 +1,4 @@
-# vue-pwa
+# Stranger Plants
 
 ## Team
 

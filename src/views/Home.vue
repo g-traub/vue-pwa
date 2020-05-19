@@ -94,6 +94,7 @@ export default {
 .insta__images {
   display: flex;
   justify-content: space-between;
+  overflow: hidden;
 }
 .insta__image {
   margin-top: 1.5rem;

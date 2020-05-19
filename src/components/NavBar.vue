@@ -60,6 +60,11 @@ export default {
   padding: 0.25rem 1rem;
   cursor: pointer;
   font-size: 0.85rem;
+  transition: 0.2s;
+
+  &:hover {
+    color: $primaryGreen;
+  }
   &.nav__item--active {
     color: $primaryGreen;
   }

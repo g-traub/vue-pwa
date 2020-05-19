@@ -1,6 +1,6 @@
 module.exports = {
   pwa: {
-    name: 'WEB2-G2',
+    name: 'Stranger Plants',
     themeColor: '#4DBA87',
     msTileColor: '#000000',
     appleMobileWebAppCapable: 'yes',
