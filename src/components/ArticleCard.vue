@@ -41,7 +41,7 @@ export default {
   min-width: 250px;
   max-width: 350px;
   width: 30vw;
-  margin: 2rem auto;
+  margin: 1rem auto;
   padding: 0.75rem;
 }
 .articleCard__image {
