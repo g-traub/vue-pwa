@@ -3,10 +3,7 @@
 </template>
 
 <script>
-import axios from 'axios'
-
-// Not actually an API url, but the path to our local json file
-const API_URL = 'data/articles.json'
+import { getArticles } from '@/service/articles'
 
 export default {
   name: 'Article',
@@ -20,12 +17,10 @@ export default {
       return this.articles.find(article => article.name === this.$route.params.articleName)
     }
   },
-  async created() {
-    axios(API_URL)
-      .then(res => {
-        this.articles = res.data
-      })
-      .catch(err => console.error(err))
+  created() {
+    getArticles().then(articles => {
+      this.articles = articles
+    })
   }
 }
 </script>
