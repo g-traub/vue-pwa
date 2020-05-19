@@ -9,9 +9,8 @@
 </template>
 
 <script>
-
 export default {
-  name: 'Hero',
+  name: 'Hero'
 }
 </script>
 
@@ -29,9 +28,9 @@ export default {
 }
 
 .siteHero__title {
-  line-height: .95;
+  line-height: 0.95;
   font-family: 'Abril Fatface';
-  font-size: 4rem
+  font-size: 4rem;
 }
 
 .siteHero__title_offset {
@@ -45,5 +44,4 @@ export default {
   font-weight: 300;
   margin-top: 8px;
 }
-
 </style>
