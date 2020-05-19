@@ -1,4 +1,5 @@
 <template lang="pug">
+div
   div.articlesList
     .articlesList__content
       h2.articles__title ARTICLES
