@@ -1,6 +1,6 @@
 <template lang="pug">
   .articleCard
-    img.articleCard__image(:src="article.image")
+    img.articleCard__image(:src="`https://strangerplants-948c.restdb.io/media/${article.image}`")
     
     section.articleCard__description
       header

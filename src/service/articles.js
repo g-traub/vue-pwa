@@ -1,10 +1,14 @@
 import axios from 'axios'
 
-const API_URL = 'data/articles.json'
+const api = axios.create({
+  baseURL: 'https://strangerplants-948c.restdb.io/rest/',
+  timeout: 5000,
+  headers: { 'x-apikey': '5ec3a273ce64705c9963fcc5' }
+})
 
 function getArticles() {
-  return axios
-    .get(API_URL)
+  return api
+    .get('articles')
     .then(res => {
       return res.data
     })
