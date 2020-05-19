@@ -1,29 +1,39 @@
 <template lang="pug">
-  div.article(v-if="article")
+  .article(v-if="article")
     aside.article__metadata
-      div.article__metadata__author {{ article.author }}
-      div.article__metadata__date {{ article.publish_date | formatDate }}
-      div.article__metadata__share
-        div.share__title Share this article
+      .article__back
+        img.arrow(src="@/assets/icons/arrow-right-line.svg")
+        router-link(:to="{name: 'ArticlesList'}") RETOUR AUX ARTICLES
+      .article__metadata__author {{ article.author }}
+      .article__metadata__date {{ article.publish_date | formatDate }}
+      .article__metadata__share
+        .share__title Share this article
         ul.share__buttons
-          li.share__button__facebook 
-          li.share__button__twitter 
-          li.share__button__default 
+          img.share__button__facebook(src="@/assets/icons/facebook-circle.svg") 
+          img.share__button__twitter(src="@/assets/icons/twitter-circle.svg") 
+          img.share__button__default(src="@/assets/icons/share-circle.svg") 
+    
     article.article__content
       h1.content__title {{article.title}}
       ul.content__hashtags
         li(v-for="tag of article.tags" :key="tag") {{ `#${tag}` }}
-
-      template(v-for="block of article.contentParts")
-        p.content__paragraph(v-if="block.type === 'txt'" v-html="block.textContent")
-        figure.content__figure(v-if="block.type === 'img'")
-          img.content__image(:src="block.imgSrc" :alt="block.imgDescription")
-          figcaption.content__figcaption {{ block.imgDescription }}
+    
+      template(v-if="article.contentParts")
+        template(v-for="block of article.contentParts")
+          p.content__paragraph(v-if="block.type === 'txt'" v-html="block.textContent")
+          figure.content__figure(v-if="block.type === 'img'")
+            img.content__image(:src="block.imgSrc" :alt="block.imgDescription")
+            figcaption.content__figcaption {{ block.imgDescription }}
+      
+      //- Generating article text here (if it's a dummy article) because we have a "complex" array of objects as the article's content
+      //- ... (to handle the real article's text and images).
+      p.content__paragraph(v-else v-html="loremIpsum({count: 6, format: 'html', units: 'paragraphs'})")
 </template>
 
 <script>
 import { getArticle } from '@/service/articles'
 import { formatDate } from '@/utils/articleDate'
+import { loremIpsum } from 'lorem-ipsum'
 
 export default {
   name: 'Article',
@@ -39,6 +49,9 @@ export default {
     getArticle(this.$route.params.id).then(article => {
       this.article = article
     })
+  },
+  methods: {
+    loremIpsum
   }
 }
 </script>
@@ -123,6 +136,22 @@ strong {
   text-align: center;
   font-style: italic;
   font-size: 1rem;
+}
+
+.share__buttons > img {
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  cursor: pointer;
+}
+
+.article__back {
+  &:hover .arrow {
+    transform: translateX(-4px) rotate(180deg);
+  }
+  .arrow {
+    transform: rotate(180deg);
+    margin-right: 0.25rem;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+  }
 }
 
 @media (max-width: 1000px) {
