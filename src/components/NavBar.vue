@@ -1,12 +1,13 @@
 <template lang="pug">
   nav.nav
     h1.nav__title
-      router-link(:to="{name: Home}") StrangerPlants
+      router-link(:to="{name: 'Home'}") StrangerPlants
     
     .nav__items
       router-link(
         v-for="item of navItems"
         :to="{name: item.to}"
+        :key="item.label"
         exact-active-class="nav__item--active"
       ).nav__item {{ item.label }}
       
@@ -59,6 +60,11 @@ export default {
   padding: 0.25rem 1rem;
   cursor: pointer;
   font-size: 0.85rem;
+  transition: 0.2s;
+
+  &:hover {
+    color: $primaryGreen;
+  }
   &.nav__item--active {
     color: $primaryGreen;
   }

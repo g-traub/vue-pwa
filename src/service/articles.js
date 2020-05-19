@@ -14,4 +14,14 @@ function getArticles(max = 100) {
     .catch(err => console.error(err))
 }
 
-export { getArticles }
+function getArticle(id) {
+  return api
+    .get(`articles/${id}`)
+    .then(res => {
+      console.log(res)
+      return res.data
+    })
+    .catch(err => console.error(err))
+}
+
+export { getArticles, getArticle }

@@ -23,6 +23,7 @@ export default {
   background-position: center;
   background-size: cover;
   padding: 128px 0;
+  margin-bottom: 64px;
   text-align: center;
 }
 

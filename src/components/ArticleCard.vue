@@ -11,7 +11,7 @@
       
       .articleCard__summary {{ article.abstract }}
       
-      router-link.articleCard__link(:to="{name:'Article', params: {id: article.id}}")
+      router-link.articleCard__link(:to="{name:'Article', params: {id: article._id, slug: slugify(article.title)}}")
         span LIRE L'ARTICLE
         img.link__icon(src="@/assets/icons/arrow-right-line.svg")
     
@@ -19,6 +19,7 @@
 
 <script>
 import { formatDate } from '@/utils/articleDate'
+import slugify from 'slugify'
 
 export default {
   name: 'ArticleCard',
@@ -29,6 +30,14 @@ export default {
     article: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    slugify(string) {
+      return slugify(string, {
+        remove: /[*+~.()'"!:,@]/g,
+        lower: true
+      })
     }
   }
 }
