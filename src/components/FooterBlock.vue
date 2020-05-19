@@ -1,9 +1,6 @@
 <template lang="pug">
   footer.footer
     NavBar
-    //- div.footer__left
-      h2.footer__title StrangerPlants
-      h3.footer__subtitle Vanessa, blogueuse voyage et botanique
     div.footer__bottom
       h2.footer__subtitle Vanessa, blogueuse voyage et botanique
       fieldset.newsletter
@@ -38,8 +35,14 @@ export default {
 
   &__bottom {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     padding: 0 calc(5% + 1rem);
+    margin-top: 44px;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 }
 
@@ -51,12 +54,21 @@ export default {
   display: flex;
   flex-direction: column;
   align-content: flex-end;
+  margin-top: 44px;
+
+  @media (min-width: 768px) {
+    margin-top: 0;
+  }
 
   &__label {
-    margin-bottom: 8px;
     text-transform: uppercase;
     font-size: 18px;
-    text-align: right;
+    margin-bottom: 8px;
+
+    @media (min-width: 768px) {
+      margin-top: 0;
+      text-align: right;
+    }
   }
 
   &__input {
