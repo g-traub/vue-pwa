@@ -24,6 +24,7 @@ export default {
   background-position: center;
   background-size: cover;
   padding: 128px 0;
+  margin-bottom: 64px;
   text-align: center;
 }
 
@@ -35,7 +36,7 @@ export default {
 
 .siteHero__title_offset {
   display: block;
-  transform: translateX(-3.75rem);
+  transform: translateX(-2.95rem);
 }
 
 .siteHero__description {
