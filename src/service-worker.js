@@ -6,9 +6,7 @@ workbox.setConfig({
 
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
 
-
 // Mise en cache de routes
-
 
 workbox.routing.registerRoute(
   new RegExp('https://strangerplants-948c.restdb.io/rest/(.*)'),
@@ -17,7 +15,7 @@ workbox.routing.registerRoute(
     cacheName: 'articles',
     method: 'GET',
     // Uniquement les réponses en 0 ou 200 sont mises en cache
-    cacheableResponse: {statuses: [0, 200]},
+    cacheableResponse: { statuses: [0, 200] },
     plugins: [
       new workbox.expiration.Plugin({
         // Le nombre maximum d'entrées à mettre en cache
@@ -27,17 +25,16 @@ workbox.routing.registerRoute(
   })
 )
 
-
 workbox.routing.registerRoute(
-	new RegExp('https://fonts.(?:googleapies|gstatic).com/(.*)'),
-	new workbox.strategies.CacheFirst({
-		cacheName: 'googleapis',
-		method: 'GET',
-		cacheableResponse: { statuses: [0, 200] },
-		plugins: [
-			new workbox.expiration.Plugin({
-				maxEntries: 30
-			})
-		]
-	})
+  new RegExp('https://fonts.(?:googleapies|gstatic).com/(.*)'),
+  new workbox.strategies.CacheFirst({
+    cacheName: 'googleapis',
+    method: 'GET',
+    cacheableResponse: { statuses: [0, 200] },
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 30
+      })
+    ]
+  })
 )
