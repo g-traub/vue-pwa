@@ -18,9 +18,13 @@ div
       img.insta__image(src="@/assets/img/insta4.png")
 
   section.home__about
-    p Salut ! Moi c’est 
-      strong Vanessa
-      |, passionnée depuis toute petite par les plantes et les voyages, je vous partage ici mes découvertes végétales les plus loufoques !
+    .about__content
+      img.about__image(src="@/assets/img/Portrait.png")
+      .about__card
+        img.about__quotes(src="@/assets/icons/quotation-marks.svg")
+        p.about__message Salut ! Moi c’est 
+          strong Vanessa
+          |, passionnée depuis toute petite par les plantes et les voyages, je vous partage ici mes découvertes végétales les plus loufoques !
 
 </template>
 
@@ -95,9 +99,54 @@ export default {
   margin-top: 1.5rem;
   transition: all cubic-bezier(0.23, 1, 0.32, 1) 0.3s;
   box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
   &:hover {
-    transform: scale(1.025);
+    transform: scale(1.015);
     box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.1);
   }
+}
+.home__about {
+  background: url('../assets/icons/leaf.svg');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: contain;
+}
+.about__content {
+  padding: 5rem calc(5% + 1rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.about__image {
+  max-width: 400px;
+  flex: 1 1 250px;
+  display: inline-block;
+}
+.about__card {
+  flex: 1;
+  max-width: 750px;
+  min-width: 340px;
+  padding: 5rem 3rem 3rem 5rem;
+  background-color: $white;
+  box-shadow: 4px 8px 32px rgba(0, 0, 0, 0.08);
+  border-radius: 3px;
+  margin: -3rem 1rem 1rem -3rem;
+  position: relative;
+}
+.about__message {
+  font-family: Josefin Sans;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 1.3;
+  strong {
+    font-weight: 600;
+  }
+}
+.about__quotes {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
 }
 </style>
