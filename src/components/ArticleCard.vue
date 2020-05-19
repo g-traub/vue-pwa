@@ -11,7 +11,7 @@
       
       .articleCard__summary {{ article.abstract }}
       
-      router-link.articleCard__link(:to="{name:'Article', params: {id: article.id}}")
+      router-link.articleCard__link(:to="{name:'Article', params: {id: article._id}}")
         span LIRE L'ARTICLE
         img.link__icon(src="@/assets/icons/arrow-right-line.svg")
     

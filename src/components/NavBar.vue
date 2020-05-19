@@ -1,12 +1,13 @@
 <template lang="pug">
   nav.nav
     h1.nav__title
-      router-link(:to="{name: Home}") StrangerPlants
+      router-link(:to="{name: 'Home'}") StrangerPlants
     
     .nav__items
       router-link(
         v-for="item of navItems"
         :to="{name: item.to}"
+        :key="item.label"
         exact-active-class="nav__item--active"
       ).nav__item {{ item.label }}
       

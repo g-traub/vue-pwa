@@ -4,7 +4,7 @@ div
     .articlesList__content
       h2.articles__title ARTICLES
       .articles__cards
-        article-card(v-for="article of articles" :article="article" :key="article.id")
+        article-card(v-for="article of articles" :article="article" :key="article._id")
 </template>
 
 <script>

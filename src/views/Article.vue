@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.article(v-if="articles")
+  div.article(v-if="article")
     aside.article__metadata
       div.article__metadata__author {{ article.author }}
       div.article__metadata__date {{ article.publish_date | formatDate }}
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { getArticles } from '@/service/articles'
+import { getArticle } from '@/service/articles'
 import { formatDate } from '@/utils/articleDate'
 
 export default {
@@ -32,17 +32,12 @@ export default {
   },
   data() {
     return {
-      articles: null
-    }
-  },
-  computed: {
-    article() {
-      return this.articles.find(article => article.name === this.$route.params.articleName)
+      article: null
     }
   },
   created() {
-    getArticles().then(articles => {
-      this.articles = articles
+    getArticle(this.$route.params.id).then(article => {
+      this.article = article
     })
   }
 }
@@ -52,7 +47,7 @@ export default {
 @import '../styles/colors';
 
 .article {
-  margin: 0 auto;
+  margin: 0 auto 5rem auto;
   padding: 0 20px;
   max-width: 1000px;
   display: flex;

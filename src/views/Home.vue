@@ -4,7 +4,7 @@ div
     .articles__content
       h2.articles__title LES DERNIERS ARTICLES
       .articles__cards
-        article-card(v-for="article of articles" :article="article" :key="article.id")
+        article-card(v-for="article of articles" :article="article" :key="article._id")
       .text-center
         button-link.articles__button(:to="{name: 'ArticlesList'}" variant="primary") VOIR D'AUTRES ARTICLES
   
