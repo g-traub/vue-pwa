@@ -119,6 +119,7 @@ strong {
   max-width: 100%;
   line-height: 150%;
   margin-bottom: 1.5rem;
+  font-weight: 300;
 }
 
 .content__figure {
