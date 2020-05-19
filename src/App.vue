@@ -5,18 +5,21 @@
       hero
     main
       router-view
+    FooterBlock
     //- @TODO: add footer
 </template>
 
 <script>
 import NavBar from '@/components/NavBar'
 import Hero from '@/components/Hero'
+import FooterBlock from '@/components/FooterBlock'
 
 export default {
   name: 'App',
   components: {
     NavBar,
-    Hero
+    Hero,
+    FooterBlock
   }
 }
 </script>
