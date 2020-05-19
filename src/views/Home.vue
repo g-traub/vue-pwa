@@ -112,7 +112,7 @@ export default {
   background-size: contain;
 }
 .about__content {
-  padding: 5rem calc(5% + 1rem);
+  padding: 5rem calc(5% + 1rem) 5rem 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -120,26 +120,30 @@ export default {
 }
 .about__image {
   max-width: 400px;
-  flex: 1 1 250px;
+  flex: 1 1 300px;
   display: inline-block;
 }
 .about__card {
   flex: 1;
   max-width: 750px;
-  min-width: 340px;
+  min-width: 380px;
   padding: 5rem 3rem 3rem 5rem;
   background-color: $white;
   box-shadow: 4px 8px 32px rgba(0, 0, 0, 0.08);
   border-radius: 3px;
-  margin: -3rem 1rem 1rem -3rem;
+  margin: -4rem 1rem 1rem -3rem;
   position: relative;
 }
 .about__message {
   font-family: Josefin Sans;
   font-style: italic;
   font-weight: 300;
-  font-size: 32px;
+  font-size: 1.5rem;
   line-height: 1.3;
+
+  @media (min-width: 700px) {
+    font-size: 2rem;
+  }
   strong {
     font-weight: 600;
   }
