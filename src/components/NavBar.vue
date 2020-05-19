@@ -1,6 +1,7 @@
 <template lang="pug">
   nav.nav
-    h1.nav__title StrangerPlants
+    h1.nav__title
+      router-link(:to="{name: Home}") StrangerPlants
     
     .nav__items
       router-link(
@@ -42,7 +43,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 0 5%;
+  padding: 0.5rem 5%;
 }
 .nav__title {
   font-weight: 500;

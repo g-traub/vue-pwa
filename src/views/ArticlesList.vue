@@ -9,7 +9,6 @@ div
 
 <script>
 import { getArticles } from '@/service/articles'
-import { sortByLatest } from '@/utils/articleDate'
 
 import ArticleCard from '@/components/ArticleCard'
 
@@ -26,7 +25,6 @@ export default {
   created() {
     getArticles().then(articles => {
       this.articles = articles
-      sortByLatest(this.articles)
     })
   }
 }
