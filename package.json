@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "buildPreview": "vue-cli-service build && browser-sync start --server 'dist'",
+    "buildPreview": "vue-cli-service build && serve dist",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

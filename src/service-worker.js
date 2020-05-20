@@ -11,7 +11,7 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
 
 
 workbox.routing.registerRoute(
-  new RegExp('https://strangerplants-948c.restdb.io/rest/(.*)'),
+  new RegExp('https://strangerplants-948c.restdb.io/(.*)'),
   new workbox.strategies.CacheFirst({
     // Options de mise en cache
     cacheName: 'articles',
@@ -27,7 +27,7 @@ workbox.routing.registerRoute(
   })
 )
 
-
+// Mettre en cache les polices
 workbox.routing.registerRoute(
 	new RegExp('https://fonts.(?:googleapies|gstatic).com/(.*)'),
 	new workbox.strategies.CacheFirst({
@@ -41,3 +41,52 @@ workbox.routing.registerRoute(
 		]
 	})
 )
+
+self.addEventListener("fetch", event => {
+  // Réponse aux requêtes vers l'API
+  if (event.request.url.includes("/rest/")) {
+    console.log('helazraelo')
+    event.respondWith(caches.match(event.request)) // Si on a déjà du data en cache, on répond avec
+    event.waitUntil(update(event.request).then(refresh))
+  } else {
+    console.log('hello')
+  }
+});
+
+function cache(request, response) {
+  if (response.type === "error" || response.type === "opaque") {
+    return Promise.resolve(); // do not put in cache network errors
+  }
+
+  return caches
+    .open(CACHE_NAME)
+    .then(cache => cache.put(request, response.clone()));
+}
+
+function update(request) {
+  return fetch(request.url).then(
+    response =>
+      cache(request, response) // On peut mettre la réponse en cache
+        .then(() => response)
+  );
+}
+
+// Fonction si l'utilisateur se trouve de nouveau en ligne, pour récupérer les nouveaux articles potentiels
+function refresh(response) {
+  return response
+    .json()
+    .then(jsonResponse => {
+      self.clients.matchAll().then(clients => {
+        clients.forEach(client => {
+          // On envoie les nouvelles data au client
+          client.postMessage(
+            JSON.stringify({
+              type: response.url,
+              data: jsonResponse.data
+            })
+          );
+        });
+      });
+      return jsonResponse.data;
+    });
+}
