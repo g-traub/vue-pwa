@@ -6,9 +6,8 @@
       header
         div.articleCard__header
           time.articleCard__publishedAt(datetime="2020-05-19") {{ article.publish_date | formatDate }}
-          img.link__icon(v-if="article.favorite" @click="toggleFavorite(false)" src="@/assets/icons/star-fill.svg")
-          img.link__icon(v-else @click="toggleFavorite(true)" src="@/assets/icons/star-line.svg")
-
+          img.link__icon(src="@/assets/icons/star-line.svg")
+          //- TODO: Change icon to star-fill onclick
         h3.articleCard__title {{ article.title }}
         .articleCard__tags
           span.articleCard__tag(v-for="tag of article.tags") {{'#' + tag }}
@@ -22,7 +21,6 @@
 </template>
 
 <script>
-import { favoriteArticle } from '@/service/articles'
 import { formatDate } from '@/utils/articleDate'
 import slugify from 'slugify'
 
@@ -42,11 +40,6 @@ export default {
       return slugify(string, {
         remove: /[*+~.()'"!:,@]/g,
         lower: true
-      })
-    },
-    toggleFavorite(value) {
-      favoriteArticle(this.article._id, value).then(article => {
-        this.article = article
       })
     }
   }
