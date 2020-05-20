@@ -4,7 +4,10 @@
     
     section.articleCard__description
       header
-        time.articleCard__publishedAt(datetime="2020-05-19") {{ article.publish_date | formatDate }}
+        div.articleCard__header
+          time.articleCard__publishedAt(datetime="2020-05-19") {{ article.publish_date | formatDate }}
+          img.link__icon(src="@/assets/icons/star-line.svg")
+          //- TODO: Change icon to star-fill onclick
         h3.articleCard__title {{ article.title }}
         .articleCard__tags
           span.articleCard__tag(v-for="tag of article.tags") {{'#' + tag }}
@@ -52,7 +55,24 @@ export default {
   width: 30vw;
   margin: 1rem auto;
   padding: 0.75rem;
+  cursor: pointer;
+
+  @media (min-width: 768px) {
+    &:hover {
+      .articleCard__description {
+        top: -20px;
+      }
+    }
+  }
 }
+
+.articleCard__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
 .articleCard__image {
   border-radius: 3px;
   min-height: 210px;
@@ -63,12 +83,14 @@ export default {
 }
 .articleCard__description {
   position: relative;
+  top: 0;
   width: 90%;
   margin: -3.5rem auto 0 auto;
   background-color: $white;
   border-radius: 3px;
   box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.1);
   padding: 1rem 1.2rem;
+  transition: all 0.2s ease-in-out;
 }
 .articleCard__publishedAt {
   display: inline-block;

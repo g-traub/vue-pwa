@@ -33,4 +33,9 @@ html,
 body {
   font-family: 'Oswald', sans-serif;
 }
+
+main {
+  position: relative;
+  top: 80px;
+}
 </style>
