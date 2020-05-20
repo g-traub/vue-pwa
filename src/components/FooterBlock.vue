@@ -48,6 +48,10 @@ export default {
 
 .nav {
   width: 100%;
+
+  footer & {
+    background: transparent;
+  }
 }
 
 .newsletter {

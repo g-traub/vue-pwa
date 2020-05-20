@@ -39,12 +39,19 @@ export default {
 @import '@/styles/colors';
 
 .nav {
+  background: white;
   min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 0.5rem 5%;
+  z-index: 100;
+
+  header & {
+    position: fixed;
+    width: 100vw;
+  }
 }
 .nav__title {
   font-weight: 500;

@@ -18,6 +18,8 @@ export default {
 @import '../styles/colors';
 
 .siteHero {
+  position: relative;
+  top: 80px;
   color: $white;
   background-image: url('/img/banner.png');
   background-position: center;
