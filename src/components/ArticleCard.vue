@@ -4,7 +4,10 @@
     
     section.articleCard__description
       header
-        time.articleCard__publishedAt(datetime="2020-05-19") {{ article.publish_date | formatDate }}
+        div.articleCard__header
+          time.articleCard__publishedAt(datetime="2020-05-19") {{ article.publish_date | formatDate }}
+          img.link__icon(src="@/assets/icons/star-line.svg")
+          //- TODO: Change icon to star-fill onclick
         h3.articleCard__title {{ article.title }}
         .articleCard__tags
           span.articleCard__tag(v-for="tag of article.tags") {{'#' + tag }}
@@ -53,6 +56,14 @@ export default {
   margin: 1rem auto;
   padding: 0.75rem;
 }
+
+.articleCard__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
 .articleCard__image {
   border-radius: 3px;
   min-height: 210px;
