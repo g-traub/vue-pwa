@@ -9,6 +9,9 @@
     "prettier/vue",
     "plugin:prettier/recommended"
   ],
+  "globals": {
+    "workbox": true
+  },
   "rules": {
     "prettier/prettier": "error"
   },

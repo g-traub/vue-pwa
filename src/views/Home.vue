@@ -118,6 +118,7 @@ export default {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  max-width: 100vw;
 }
 .about__image {
   max-width: 400px;
@@ -127,7 +128,7 @@ export default {
 .about__card {
   flex: 1;
   max-width: 750px;
-  min-width: 380px;
+  min-width: 300px;
   padding: 5rem 3rem 3rem 5rem;
   background-color: $white;
   box-shadow: 4px 8px 32px rgba(0, 0, 0, 0.08);
