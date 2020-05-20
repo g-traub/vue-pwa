@@ -121,14 +121,14 @@ export default {
   max-width: 100vw;
 }
 .about__image {
-  max-width: 300px;
+  max-width: 400px;
   flex: 1 1 300px;
   display: inline-block;
 }
 .about__card {
   flex: 1;
   max-width: 750px;
-  min-width: 300px;
+  min-width: 280px;
   padding: 5rem 3rem 3rem 5rem;
   background-color: $white;
   box-shadow: 4px 8px 32px rgba(0, 0, 0, 0.08);
