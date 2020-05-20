@@ -24,4 +24,11 @@ function getArticle(id) {
     .catch(err => console.error(err))
 }
 
-export { getArticles, getArticle }
+function favoriteArticle(id, favoriteValue) {
+  return api
+    .put(`articles/${id}`, { favorite: favoriteValue })
+    .then(res => res.data)
+    .catch(err => console.error(err))
+}
+
+export { getArticles, getArticle, favoriteArticle }
