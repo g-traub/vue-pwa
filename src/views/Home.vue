@@ -121,7 +121,7 @@ export default {
   max-width: 100vw;
 }
 .about__image {
-  max-width: 400px;
+  max-width: 300px;
   flex: 1 1 300px;
   display: inline-block;
 }

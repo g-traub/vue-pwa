@@ -5,8 +5,7 @@
       hero
     main
       router-view
-    FooterBlock
-    //- @TODO: add footer
+    footer-block
 </template>
 
 <script>
