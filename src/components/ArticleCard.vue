@@ -6,8 +6,9 @@
       header
         div.articleCard__header
           time.articleCard__publishedAt(datetime="2020-05-19") {{ article.publish_date | formatDate }}
-          img.link__icon(src="@/assets/icons/star-line.svg")
-          //- TODO: Change icon to star-fill onclick
+          img.link__icon(v-if="favorited" @click="toggleFavorite(false)" src="@/assets/icons/star-fill.svg")
+          img.link__icon(v-else @click="toggleFavorite(true)" src="@/assets/icons/star-line.svg")
+        
         h3.articleCard__title {{ article.title }}
         .articleCard__tags
           span.articleCard__tag(v-for="tag of article.tags") {{'#' + tag }}
@@ -35,7 +36,19 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      favorited: null
+    }
+  },
+  created() {
+    this.favorited = localStorage[this.article._id] || false
+  },
   methods: {
+    toggleFavorite(value) {
+      this.favorited = value
+      localStorage.setItem(this.article._id, value)
+    },
     slugify(string) {
       return slugify(string, {
         remove: /[*+~.()'"!:,@]/g,
