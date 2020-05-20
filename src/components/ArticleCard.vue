@@ -55,6 +55,15 @@ export default {
   width: 30vw;
   margin: 1rem auto;
   padding: 0.75rem;
+  cursor: pointer;
+
+  @media (min-width: 768px) {
+    &:hover {
+      .articleCard__description {
+        top: -20px;
+      }
+    }
+  }
 }
 
 .articleCard__header {
@@ -74,12 +83,14 @@ export default {
 }
 .articleCard__description {
   position: relative;
+  top: 0;
   width: 90%;
   margin: -3.5rem auto 0 auto;
   background-color: $white;
   border-radius: 3px;
   box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.1);
   padding: 1rem 1.2rem;
+  transition: all 0.2s ease-in-out;
 }
 .articleCard__publishedAt {
   display: inline-block;
