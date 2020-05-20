@@ -1,8 +1,8 @@
 module.exports = {
   pwa: {
     name: 'Stranger Plants',
-    themeColor: '#4DBA87',
-    msTileColor: '#000000',
+    themeColor: '#36f0a2',
+    msTileColor: '#333333',
     appleMobileWebAppCapable: 'yes',
     appleMobileWebAppStatusBarStyle: 'black',
     manifestOptions: {
