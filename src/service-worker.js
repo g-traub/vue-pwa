@@ -7,7 +7,7 @@ workbox.setConfig({
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
 
 // Mise en cache de routes
-
+// Articles
 workbox.routing.registerRoute(
   new RegExp('https://strangerplants-948c.restdb.io/rest/(.*)'),
   new workbox.strategies.CacheFirst({
@@ -24,7 +24,7 @@ workbox.routing.registerRoute(
     ]
   })
 )
-
+// Gfonts
 workbox.routing.registerRoute(
   new RegExp('https://fonts.(?:googleapies|gstatic).com/(.*)'),
   new workbox.strategies.CacheFirst({
@@ -38,3 +38,29 @@ workbox.routing.registerRoute(
     ]
   })
 )
+
+// Notifications
+let clickUrl
+
+self.addEventListener('push', event => {
+  // { "title": "test", "url": "strangerplants.netlify.app" }
+  let pushMessage = event.data.json()
+  clickUrl = pushMessage.url
+
+  const options = {
+    body: pushMessage.title,
+    icon: './img/apple-touch-icon-60x60.png',
+    image: './img/apple-touch-icon-60x60.png',
+    vibrate: [200, 100, 200, 100],
+    tag: 'vibration-sample'
+  }
+
+  event.waitUntil(self.registration.showNotification(pushMessage.title, options))
+})
+
+self.addEventListener('notificationclick', event => {
+  event.notification.close()
+
+  const promiseChain = clients.openWindow(clickUrl)
+  event.waitUntil(promiseChain)
+})

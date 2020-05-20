@@ -10,7 +10,8 @@
     "plugin:prettier/recommended"
   ],
   "globals": {
-    "workbox": true
+    "workbox": true,
+    "clients": true
   },
   "rules": {
     "prettier/prettier": "error"
