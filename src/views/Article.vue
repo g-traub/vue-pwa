@@ -145,6 +145,7 @@ strong {
 }
 
 .article__back {
+  margin-bottom: 2rem;
   &:hover .arrow {
     transform: translateX(-4px) rotate(180deg);
   }
