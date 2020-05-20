@@ -51,4 +51,11 @@ export default {
   font-weight: 300;
   margin-top: 8px;
 }
+
+@media (max-width: 600px) {
+  .siteHero__title {
+    width: 225px;
+    font-size: 3rem;
+  }
+}
 </style>
